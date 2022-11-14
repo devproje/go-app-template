@@ -12,6 +12,9 @@ debug:
 init:
 	go mod tidy
 
+docker:
+	docker-compose build --no-cache --build-arg	FILE_NAME="$(TARGET)"
+
 publish:
 	./scripts/publish.sh $(TAG)
 
