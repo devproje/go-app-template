@@ -1,0 +1,5 @@
+service
+log.txt
+
+# MacOS Directory cache
+.DS_Store
