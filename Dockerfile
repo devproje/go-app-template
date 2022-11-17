@@ -16,4 +16,4 @@ RUN mv ${FILE_NAME} ../
 WORKDIR /usr/local/app
 RUN rm -rf ./src
 
-ENTRYPOINT [ "/usr/local/app/${FILE_NAME}", "-release-mode=release" ]
+ENTRYPOINT [ "/usr/local/app/${FILE_NAME}", "-mode=release" ]

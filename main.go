@@ -19,14 +19,14 @@ func getMode() {
 		log.SetLevel(level.Info)
 	case "debug":
 		log.SetLevel(level.Debug)
-		log.Warnln("You're now into debug mode. If you want a change production mode, please add flag '-release-mode=release'.")
+		log.Warnln("You're now into debug mode. If you want a change production mode, please add flag '-mode=release'.")
 	default:
 		log.Fatalln(fmt.Sprintf("'%s' not available mode type. (available mode: release, debug)", mode))
 	}
 }
 
 func init() {
-	flag.StringVar(&mode, "release-mode", "debug", "Service debug mode")
+	flag.StringVar(&mode, "mode", "debug", "Service debug mode")
 	flag.Parse()
 
 	getMode()
