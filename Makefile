@@ -1,16 +1,14 @@
 TARGET=service
-SOURCE=main.go
+SOURCES=*.go **/*.go
+MAIN=main.go
 
 TAG=default
 
-$(TARGET): $(SOURCE)
-	go build -o $(TARGET) $(SOURCE)
+$(TARGET): $(MAIN) $(SOURCES)
+	go build -o $(TARGET) $(MAIN)
 
 debug:
 	go run main.go -debug
-
-init:
-	go mod tidy
 
 docker:
 	docker-compose build --no-cache --build-arg	FILE_NAME="$(TARGET)"

@@ -1,4 +1,4 @@
-FROM golang:1.19.3-alpine3.16
+FROM golang:1.19.4-alpine3.16
 
 ARG FILE_NAME
 
@@ -14,6 +14,8 @@ RUN make
 RUN mv ${FILE_NAME} ../
 
 WORKDIR /usr/local/app
+
+# Remove build source
 RUN rm -rf ./src
 
 ENTRYPOINT [ "/usr/local/app/${FILE_NAME}", "-mode=release" ]
