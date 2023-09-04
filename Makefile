@@ -1,23 +1,20 @@
-TARGET=service
-SOURCES=*.go **/*.go
-MAIN=main.go
+OUTPUT=service
+SOURCES=src/*.go src/**/*.go
+MAIN=src/main.go
 
 TAG=default
 
-$(TARGET): $(MAIN) $(SOURCES)
-	go build -o $(TARGET) $(MAIN)
+all: $(OUTPUT)
+
+$(OUTPUT): $(SOURCES)
+	go build -o $^ $(MAIN)
 
 debug:
 	go run main.go -debug
-
-docker:
-	docker-compose build --no-cache --build-arg	FILE_NAME="$(TARGET)"
 
 publish:
 	./scripts/publish.sh $(TAG)
 
 clean:
 	rm $(TARGET)
-
-rmlog:
 	rm log.txt
