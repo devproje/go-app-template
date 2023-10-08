@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/devproje/go-app-template/utils"
+	"github.com/devproje/go-app-template/src/utils"
 	"github.com/devproje/plog/level"
 	"github.com/devproje/plog/log"
 )
